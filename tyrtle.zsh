@@ -23,15 +23,6 @@ else
   echo "🔔 zsh-syntax-highlighting not found!" >&2
 fi
 
-# fzf completion
-if [[ -n "$commands[fzf]" ]]; then
-  autoload -Uz compinit
-  if ! whence -w compinit &>/dev/null; then
-    compinit
-  fi
-  bindkey '^I' expand-or-complete
-fi
-
 # History settings
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
@@ -52,16 +43,6 @@ alias turtle='echo 🐢 "Stay slow, stay steady."'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias rm='rm -i'
-
-# codepeek alias for quick file preview and editing
-if command -v bat &>/dev/null; then
-  export BAT_CMD="bat"
-elif command -v batcat &>/dev/null; then
-  export BAT_CMD="batcat"
-else
-  export BAT_CMD="cat"
-fi
-alias codepeek='nvim $(fzf -m -preview="$BAT_CMD --color=always {}")'
 
 # Shell options for beginners
 setopt no_beep
