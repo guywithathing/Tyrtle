@@ -1,35 +1,73 @@
+# tyrtle Zsh configuration - beginner-friendly!
+# 🐢 Edit this file to customize your shell experience.
+
 export SHELL="tyrtle"
 argv0="tyrtle"
 
 autoload -Uz colors && colors
 setopt prompt_subst
 
-PROMPT='%{$fg_bold[green]%}🐢 tyrtle %{$fg[blue]%}%~ %{$reset_color%}➤ '
+# Function to show current git branch in prompt
+git_prompt() {
+  local branch
+  branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+  [[ -n $branch ]] && echo "%{$fg_bold[magenta]%}[$branch]%{$reset_color%} "
+}
+PROMPT='%{$fg_bold[green]%}🐢 tyrtle %{$fg[blue]%}%~ $(git_prompt)%{$reset_color%}➤ '
 
-autoload -Uz zsh-syntax-highlighting
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null || true
+# Syntax highlighting (portable)
+ZSH_SYNTAX_HIGHLIGHTING_PATH="${ZSH_SYNTAX_HIGHLIGHTING_PATH:-/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh}"
+if [[ -f "$ZSH_SYNTAX_HIGHLIGHTING_PATH" ]]; then
+  source "$ZSH_SYNTAX_HIGHLIGHTING_PATH"
+else
+  echo "🔔 zsh-syntax-highlighting not found!" >&2
+fi
 
+# fzf completion
 if [[ -n "$commands[fzf]" ]]; then
-  autoload -Uz compinit && compinit
+  autoload -Uz compinit
+  if ! whence -w compinit &>/dev/null; then
+    compinit
+  fi
   bindkey '^I' expand-or-complete
 fi
 
+# History settings
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
 setopt append_history
 setopt hist_ignore_dups
 setopt share_history
+setopt hist_ignore_space
+setopt extended_history
 
+# Quality-of-life aliases
 alias cls='clear'
 alias ll='ls -alF --color=auto'
 alias la='ls -A --color=auto'
 alias l='ls --color=auto'
 alias gs='git status'
-alias turtle='echo 🐢 "steady, steady, steady..."'
+alias turtle='echo 🐢 "Stay slow, stay steady."'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias rm='rm -i'
 
+# codepeek alias for quick file preview and editing
+if command -v bat &>/dev/null; then
+  export BAT_CMD="bat"
+elif command -v batcat &>/dev/null; then
+  export BAT_CMD="batcat"
+else
+  export BAT_CMD="cat"
+fi
+alias codepeek='nvim $(fzf -m -preview="$BAT_CMD --color=always {}")'
+
+# Shell options for beginners
 setopt no_beep
 setopt noclobber
 unsetopt nomatch
+setopt auto_cd
 
-echo "🐢 Welcome to tyrtle, a pre-configured zsh file for the zsh shell!"
+# Welcome message (interactive shells only)
+[[ $- == *i* ]] && echo "🐢 Welcome to tyrtle, a beginner-friendly Zsh shell."
