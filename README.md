@@ -1,20 +1,38 @@
-The ZSH pre-configured config for Begineers.
+# Tyrtle
 
-What is tyrtle? :
-Tyrtle is a pre-configured but some-what minimal shell for zsh begineers to use to make the zsh world a lot more welcoming!
+A pre-configured Zsh config for beginners.
 
-Why is it named tyrtle? :
-Tyrtle is a remix of the word turtle and turtle is a new pet i got!
+## What is Tyrtle?
+Tyrtle is a pre-configured yet minimal shell setup designed to make Zsh more welcoming for beginners.
 
-How do i download this tyrtle thing?
+## Why is it named Tyrtle?
+Tyrtle is a playful remix of the word "turtle." It's also named after my new pet turtle!
 
-First you need to add source source ~/tyrtle.zsh to your .zshrc config file.
-And second add a file named tyrtle.zsh, You can copy it from here by finding the tyrtle.zsh file.
+## Installation
 
-Dependencies it needs to work.
-1. zsh (duh.)
-2. zsh-syntax-highlighting
-3. fzf (For the codepeek)
-4. nvim (Also for the codepeek)
-5. Bat or cat (bat is better in my opinion to make more sense)
-6. git (i dont know HOW you are gonna install it via git but yeah.)
+1. Copy the `tyrtle.zsh` file from this repository to your home directory. You can do this with:
+   ```sh
+   curl -o ~/tyrtle.zsh https://raw.githubusercontent.com/guywithathing/Tyrtle/main/tyrtle.zsh
+   ```
+2. Add the following line to your `.zshrc` file:
+   ```sh
+   source ~/tyrtle.zsh
+   ```
+
+## Dependencies
+
+Make sure you have the following installed:
+- `zsh`
+- `zsh-syntax-highlighting`
+- `fzf` (for the codepeek feature)
+- `nvim` (also for codepeek)
+- `bat` or `cat` (bat is recommended for better output)
+- `git`
+
+## Contributing
+
+Contributions are welcome! Feel free to open an issue or pull request.
+
+## License
+
+MIT
