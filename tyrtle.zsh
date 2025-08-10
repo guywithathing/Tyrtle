@@ -34,15 +34,13 @@ setopt hist_ignore_space
 setopt extended_history
 
 # Quality-of-life aliases
-alias cls='clear'
+alias clr='clear'
 alias ll='ls -alF --color=auto'
 alias la='ls -A --color=auto'
 alias l='ls --color=auto'
 alias gs='git status'
-alias turtle='echo 🐢 "Stay slow, stay steady."'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias rm='rm -i'
 
 # Shell options for beginners
 setopt no_beep
