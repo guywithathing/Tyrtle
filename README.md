@@ -28,7 +28,7 @@ Make sure you have the following installed:
 
 ## Contributing
 
-Contributions are welcome! Feel free to open an issue or pull request.
+Contributions are welcome! :D Feel free to open an issue or pull request :)
 
 ## License
 
