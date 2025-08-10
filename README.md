@@ -6,7 +6,7 @@ A pre-configured Zsh config for beginners.
 Tyrtle is a pre-configured yet minimal shell setup designed to make Zsh more welcoming for beginners.
 
 ## Why is it named Tyrtle?
-Tyrtle is a playful remix of the word "turtle." It's also named after my new pet turtle!
+Tyrtle is a playful remix of the word "turtle." It's also named after my new pet turtle, koopa! (thanks for diogo for naming my boy koopa :D )
 
 ## Installation
 
