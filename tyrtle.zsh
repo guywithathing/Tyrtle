@@ -38,7 +38,7 @@ alias clr='clear'
 alias ll='ls -alF --color=auto'
 alias la='ls -A --color=auto'
 alias l='ls --color=auto'
-alias gs='git status'
+alias pls='sudo $(fc -ln -2)' # yeah zsh, HES BEGGING FOR YOU TO PUT IT IN SUDO
 alias ..='cd ..'
 alias ...='cd ../..'
 
