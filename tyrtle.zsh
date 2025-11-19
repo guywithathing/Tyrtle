@@ -15,14 +15,6 @@ git_prompt() {
 }
 PROMPT='%{$fg_bold[green]%}🐢 tyrtle %{$fg[blue]%}%~ $(git_prompt)%{$reset_color%}➤ '
 
-# Syntax highlighting (portable)
-ZSH_SYNTAX_HIGHLIGHTING_PATH="${ZSH_SYNTAX_HIGHLIGHTING_PATH:-/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh}"
-if [[ -f "$ZSH_SYNTAX_HIGHLIGHTING_PATH" ]]; then
-  source "$ZSH_SYNTAX_HIGHLIGHTING_PATH"
-else
-  echo "🔔 zsh-syntax-highlighting not found!" >&2
-fi
-
 # History settings
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
@@ -36,11 +28,9 @@ setopt extended_history
 # Quality-of-life aliases
 alias clr='clear'
 alias ll='ls -alF --color=auto'
-alias la='ls -A --color=auto'
-alias l='ls --color=auto'
 alias pls='sudo $(fc -ln -2)' # yeah zsh, HES BEGGING FOR YOU TO PUT IT IN SUDO
 alias ..='cd ..'
-alias ...='cd ../..'
+alias ...='cd ../..' #enshitiffication, am i right?
 
 # Shell options for beginners
 setopt no_beep
@@ -48,5 +38,5 @@ setopt noclobber
 unsetopt nomatch
 setopt auto_cd
 
-# Welcome message (interactive shells only)
+# welcome message.
 [[ $- == *i* ]] && echo "🐢 Welcome to tyrtle, a beginner-friendly Zsh shell."
