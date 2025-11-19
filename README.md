@@ -24,7 +24,6 @@ Tyrtle is a playful remix of the word "turtle." It's also named after my new pet
 
 Make sure you have the following installed:
 - `zsh`
-- `zsh-syntax-highlighting`
 - `git`
 
 ## Contributing
